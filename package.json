@@ -1,0 +1,53 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@cap-js/postgres": "^2.0.5",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4.10.0",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "streamifier": "^0.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9.4.1",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.8.1",
+    "@types/pg": "^8.15.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "postgres"
+      },
+      "auth": {
+        "kind": "custom",
+        "impl": "srv/middleware/auth.js"
+      }
+    }
+  },
+  "roles": {
+    "admin": true,
+    "vendor": true,
+    "employee": true
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "prod": "cds-serve-gen",
+    "build": "tsc",
+    "watch": "cds watch --with-mocks --in-memory"
+  },
+  "private": true
+}
